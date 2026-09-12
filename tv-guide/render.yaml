@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: esg-football-tv-board
+    runtime: node
+    plan: starter
+    buildCommand: ""
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true

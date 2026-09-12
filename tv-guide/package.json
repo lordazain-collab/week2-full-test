@@ -1,0 +1,13 @@
+{
+  "name": "esg-football-tv-board",
+  "version": "1.7.0",
+  "private": true,
+  "description": "Weekly client-first ESPN football watch guide with NFL/NIL master summary, PFF TV verification and PFF client leaderboards.",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check app.js && node --check portal.js && node --check server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#080d14" />
+  <title>ESG Calendar: Watch Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="portal-page watch-guide-home">
+  <header class="exec-header">
+    <div class="exec-header-inner">
+      <a class="esg-brand" href="index.html">
+        <span class="esg-mark">ESG</span><span class="brand-rule"></span>
+        <span class="brand-copy"><b>CALENDAR: WATCH GUIDE</b><small>FOOTBALL OPERATIONS COMMAND CENTER</small></span>
+      </a>
+      <nav class="exec-nav master-nav" aria-label="Watch guide navigation">
+        <a class="active" href="index.html">Summary</a><a href="college.html?week=2">NIL</a><a href="nfl.html">NFL</a>
+      </nav>
+      <span class="source-lock"><i></i> ESPN PRIMARY · PFF VERIFY</span>
+    </div>
+  </header>
+
+  <main class="command-main portal-main">
+    <section class="executive-banner portal-banner watch-guide-banner">
+      <div class="crumb-row"><div><b>CALENDAR</b><span>/</span><em>WATCH GUIDE</em><span>/</span><strong>MASTER SUMMARY</strong></div></div>
+      <div class="banner-main">
+        <div>
+          <div class="title-row"><h1>CALENDAR: WATCH GUIDE</h1><span>CLIENT-FIRST</span></div>
+          <p>One master landing page for the current NFL and NIL client weeks. Use the summaries below for the quick operating picture, then click into the full weekly watch guide.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="master-summary-grid" aria-label="NFL and NIL weekly summaries">
+      <article class="master-summary-card nil-summary">
+        <header><div><span class="league-badge">NIL</span><div><small>COLLEGE FOOTBALL</small><h2>NIL SUMMARY</h2></div></div><span id="nilWeekBadge" class="summary-week-badge">WEEK —</span></header>
+        <div id="nilSummaryStats" class="summary-stat-row"></div>
+        <div id="nilSummaryGames" class="summary-game-list"></div>
+        <a id="nilMoreLink" class="summary-more" href="college.html?week=2"><span>CLICK MORE</span><b>OPEN NIL WEEKLY WATCH GUIDE →</b></a>
+      </article>
+
+      <article class="master-summary-card nfl-summary">
+        <header><div><span class="league-badge">NFL</span><div><small>NATIONAL FOOTBALL LEAGUE</small><h2>NFL SUMMARY</h2></div></div><span id="nflWeekBadge" class="summary-week-badge">WEEK —</span></header>
+        <div id="nflSummaryStats" class="summary-stat-row"></div>
+        <div id="nflSummaryGames" class="summary-game-list"></div>
+        <a id="nflMoreLink" class="summary-more" href="nfl.html"><span>CLICK MORE</span><b>OPEN NFL WEEKLY WATCH GUIDE →</b></a>
+      </article>
+    </section>
+
+    <section class="source-rule-panel compact-source-rule"><strong>WATCH GUIDE SOURCE POLICY</strong><p>Full weekly pages use ESPN as the primary schedule/TV source. PFF is a secondary TV verification layer only. Stadium, location and weather remain ESPN-sourced.</p></section>
+  </main>
+  <script src="data/client-data.js"></script>
+  <script src="portal.js"></script>
+</body>
+</html>

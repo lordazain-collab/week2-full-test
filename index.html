@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#06101e">
+<title>ESG College Football — Week 2 Command Center</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brandmark">ESG</div><div class="brandcopy"><strong>FOOTBALL INTELLIGENCE</strong><span>College · Week 2 / 2026</span></div></div>
+    <div class="navlabel">Command</div>
+    <nav class="nav">
+      <button class="active" data-page="home"><span class="icon">◈</span>Home / Live</button>
+      <button data-page="schedule"><span class="icon">▦</span>Master Schedule</button>
+      <button data-page="stats"><span class="icon">⌁</span>All Client Stats</button>
+      <button data-page="pff"><span class="icon">P</span>PFF · Manual</button>
+      <button data-page="tv"><span class="icon">▣</span>TV Guide</button>
+      <button data-page="sources"><span class="icon">◎</span>Sources / Audit</button>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="source-mini"><b>CONTROL:</b> 2026 College Football Client Stats Tracker<br><b>AUTO:</b> ESPN schedule + box stats<br><b>PFF:</b> manual / controlled import only</div>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">Exclusive Sports Group · College Football Operations</div>
+        <div class="titleline"><h1>Week 2 Command Center</h1><span class="week">SAT · SEP 12 · 2026</span></div>
+      </div>
+      <div class="top-actions">
+        <span id="autoChip" class="chip live">ESPN AUTO · 60s</span>
+        <span id="pffChip" class="chip">PFF · MANUAL</span>
+        <span id="lastCheck" class="chip">Last check —</span>
+        <button id="refreshNow" class="action primary">CHECK ESPN NOW</button>
+      </div>
+    </header>
+    <div id="progress" class="progress"><i></i></div>
+
+    <div class="content">
+      <section class="page active" data-page-panel="home">
+        <div class="metrics">
+          <div class="metric"><label>Clients</label><strong id="mClients">89</strong><span>controlled roster</span></div>
+          <div class="metric"><label>Today</label><strong id="mToday">—</strong><span>scheduled clients</span></div>
+          <div class="metric"><label>Live now</label><strong id="mLive">0</strong><span>ESPN status</span></div>
+          <div class="metric"><label>Week 2 games</label><strong id="mGames">44</strong><span>client schedule</span></div>
+        </div>
+
+        <div class="hero-grid">
+          <div class="stack">
+            <section class="panel">
+              <div class="panel-head"><div class="panel-title"><span class="pulse"></span><h2>Clients Playing Right Now</h2></div><div class="panel-meta" id="liveMeta">ESPN STATUS FEED</div></div>
+              <div id="liveGames" class="cards"><div class="empty"><b>Checking ESPN…</b>Live client games will appear here automatically.</div></div>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><div class="panel-title"><span class="pulse muted-dot"></span><h2>Top Performers · Today</h2></div><div class="panel-meta">ESPN BOX SNAPSHOT · DISPLAY ORDER ≠ GRADE</div></div>
+              <div id="topPerformers" class="performers"><div class="empty"><b>Waiting for recorded stats</b>Cards populate from ESPN summary rows after games begin.</div></div>
+            </section>
+          </div>
+          <div class="stack">
+            <section class="panel">
+              <div class="panel-head"><div class="panel-title"><span class="pulse muted-dot"></span><h2>Next Up</h2></div><div class="panel-meta">EASTERN TIME</div></div>
+              <div id="nextUp" class="next-list"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-head"><div class="panel-title"><span class="pulse muted-dot"></span><h2>Today · TV Rail</h2></div><div class="panel-meta">ESPN PRIMARY</div></div>
+              <div id="tvRail" class="next-list"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" data-page-panel="schedule">
+        <section class="panel">
+          <div class="panel-head"><div class="panel-title"><span class="pulse muted-dot"></span><h2>Week 2 Master Client Schedule</h2></div><div class="panel-meta" id="scheduleMeta">44 GAMES · ESPN RUNTIME ENRICHMENT</div></div>
+          <div class="toolbar">
+            <div class="filters">
+              <button class="schedule-filter active" data-date="all">ALL WEEK 2</button>
+              <button class="schedule-filter" data-date="2026-09-11">FRI 9/11</button>
+              <button class="schedule-filter" data-date="2026-09-12">SAT 9/12</button>
+              <button class="schedule-filter" data-date="2026-09-13">SUN 9/13</button>
+            </div>
+            <input id="scheduleSearch" class="search" placeholder="Search team or client">
+          </div>
+          <div id="scheduleList"></div>
+          <div class="source-note">Schedule baseline is the current Week 2 client watch list. ESPN refreshes status, score, kickoff, network, venue and game metadata at runtime; missing ESPN carrier remains NOT FOUND.</div>
+        </section>
+      </section>
+
+      <section class="page" data-page-panel="stats">
+        <section class="panel">
+          <div class="panel-head"><div class="panel-title"><span class="pulse muted-dot"></span><h2>All Week 2 Client Stats</h2></div><div class="panel-meta">BLANK ≠ ZERO</div></div>
+          <div class="toolbar">
+            <div class="filters">
+              <button id="manualRefreshAll" class="action primary">MANUAL REFRESH ALL WEEK 2 ESPN STATS</button>
+              <button id="downloadSnapshot" class="action">DOWNLOAD SNAPSHOT</button>
+            </div>
+            <input id="statsSearch" class="search" placeholder="Search player, school, position">
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Player</th><th>Game</th><th>Status</th><th>ESPN Stat Line</th><th>PFF</th><th>Source / Checked</th></tr></thead>
+              <tbody id="statsBody"></tbody>
+            </table>
+          </div>
+          <div class="source-note">This is a runtime ESPN observation layer. No missing player row is converted to zero or DNP. Final values should be reviewed/reconciled back to the controlled tracker through the current process.</div>
+        </section>
+      </section>
+
+      <section class="page" data-page-panel="pff">
+        <section class="panel">
+          <div class="panel-head"><div class="panel-title"><span class="pulse muted-dot"></span><h2>PFF · Manual / Controlled</h2></div><div class="panel-meta">NO AUTOMATIC PFF REQUESTS</div></div>
+          <div class="toolbar"><div class="filters"><button id="reloadControlledPff" class="action">RELOAD CONTROLLED PFF</button></div><input id="pffSearch" class="search" placeholder="Search player or school"></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Player</th><th>School / Pos</th><th>Week 2 PFF</th><th>PFF Extra</th><th>Snaps</th><th>Last controlled PFF reference</th></tr></thead>
+              <tbody id="pffBody"></tbody>
+            </table>
+          </div>
+          <div class="source-note">PFF is intentionally excluded from the automatic checker. Week 2 PFF values appear only when supplied by the controlled performance import; the prior controlled PFF value is shown only as a labeled reference.</div>
+        </section>
+      </section>
+
+      <section class="page" data-page-panel="tv">
+        <div class="iframe-wrap"><iframe title="ESG Football TV Board v1.7" src="tv-guide/college.html?week=2"></iframe></div>
+      </section>
+
+      <section class="page" data-page-panel="sources">
+        <div class="audit">
+          <section class="panel"><h3>Controlled identity</h3><p>Player universe comes from the college master roster. ESPN Athlete ID is used for stat matching when present. Name/team matching is not silently promoted to identity.</p></section>
+          <section class="panel"><h3>Automatic ESPN</h3><p>Today scoreboard polls every 60 seconds. Only tracked Week 2 client games are kept. One summary request is made per relevant live/final game, then player rows are matched by ESPN Athlete ID.</p></section>
+          <section class="panel"><h3>PFF boundary</h3><p>PFF stays manual. No PFF endpoint is called by this dashboard. Controlled PFF values can be read from the existing <code>/api/v1/performances</code> flow when available.</p></section>
+          <section class="panel"><h3>Stat semantics</h3><p><code>TKLS</code> means total tackles. FF and FR remain separate. Missing ESPN rows remain blank. Starts/snaps are never inferred from a box-score absence.</p></section>
+          <section class="panel"><h3>TV Guide</h3><p>The packaged TV Guide is the supplied ESG Football TV Board v1.7. ESPN is primary for kickoff, TV/streaming, venue, status and score. Automatic PFF network verification is disabled here; controlled PFF display remains.</p></section>
+          <section class="panel"><h3>Runtime vs control</h3><p>Live data is transient. A final ESPN snapshot can be exported for review, but the controlled tracker remains authoritative after reconciliation.</p></section>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+<div id="toast" class="toast"></div>
+<script src="data/week2-baseline.js"></script>
+<script src="assets/week2.js"></script>
+</body>
+</html>

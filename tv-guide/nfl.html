@@ -1,0 +1,93 @@
+<!doctype html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#080d14" />
+  <title>ESG NFL Weekly Watch Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-league="nfl">
+  <header class="exec-header">
+    <div class="exec-header-inner">
+      <div class="header-left">
+        <a class="esg-brand" href="index.html" aria-label="Exclusive Sports Group Calendar Watch Guide">
+          <span class="esg-mark">ESG</span><span class="brand-rule"></span>
+          <span class="brand-copy"><b>CALENDAR: WATCH GUIDE</b><small>NFL · WEEKLY OPERATIONS</small></span>
+        </a>
+        <nav class="exec-nav" aria-label="Football watch guide navigation">
+          <a href="index.html">Summary</a><a class="active" href="nfl.html">NFL</a><a href="college.html?week=2">NIL</a>
+        </nav>
+      </div>
+      <div class="header-right">
+        <span class="source-lock"><i></i> ESPN PRIMARY · PFF VERIFY</span>
+        <select id="tzSelect" class="tz-control" aria-label="Time zone">
+          <option value="America/New_York">EDT / ET</option><option value="America/Chicago">CDT / CT</option><option value="America/Denver">MDT / MT</option><option value="America/Los_Angeles">PDT / PT</option><option value="local">LOCAL</option>
+        </select>
+        <button class="refresh-icon" id="refreshBtn" title="Refresh ESPN weekly schedule" aria-label="Refresh ESPN weekly schedule">↻</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="command-main">
+    <section class="executive-banner">
+      <div class="crumb-row">
+        <div><b>CALENDAR: WATCH GUIDE</b><span>/</span><em>NFL WEEKLY PAGE</em><span>/</span><strong>CLIENT SLATE</strong></div>
+        <div><span>SYNC:</span> <strong id="freshness">Loading ESPN…</strong></div>
+      </div>
+      <div class="banner-main">
+        <div><div class="title-row"><h1>NFL WEEKLY WATCH GUIDE</h1><span>CLIENT-FIRST</span></div><p id="heroSub">NFL clients first, organized by week. Every card carries its own day, date and kickoff.</p></div>
+        <div class="banner-actions"><button class="ghost-action" id="copyBtn">COPY WEEK RUNDOWN</button><button class="blue-action" id="icsBtn">EXPORT WEEK</button></div>
+      </div>
+    </section>
+
+    <section class="slate-shell weekly-slate-shell">
+      <div class="slate-header">
+        <div class="slate-title"><span class="league-badge">NFL</span><h2>WEEKLY WATCH GUIDE</h2><span id="gameCount" class="slate-count">—</span></div>
+        <div class="filter-pills" role="tablist" aria-label="Schedule filters">
+          <button class="filter-tab client-filter active" data-filter="clients">BY CLIENTS</button>
+          <button class="filter-tab" data-filter="all">ALL ESPN GAMES</button>
+          <button class="filter-tab" data-filter="tv">TV FOUND</button>
+          <button class="filter-tab missing-tab" data-filter="missing">NOT FOUND</button>
+          <button class="filter-tab" data-filter="ranked">RANKED</button>
+          <button class="filter-tab" data-filter="streaming">STREAMING</button>
+        </div>
+      </div>
+
+      <div class="week-control-bar">
+        <button class="date-arrow" id="prevWeek" aria-label="Previous week">‹</button>
+        <div class="week-strip" id="weekStrip"></div>
+        <button class="date-arrow" id="nextWeek" aria-label="Next week">›</button>
+        <div class="week-selected"><span>ACTIVE WEEK</span><strong id="weekHeading">Week</strong></div>
+        <label class="matrix-search"><span>⌕</span><input id="searchInput" type="search" placeholder="Team, client or ESPN network" autocomplete="off" /></label>
+      </div>
+
+      <div id="sourceBanner" class="source-banner hidden"></div>
+      <section class="micro-metrics" id="metrics" aria-label="Client weekly schedule summary"></section>
+      <section id="schedule" class="broadcast-matrix" aria-live="polite"></section>
+      <div class="matrix-status-strip"><span>WEEKLY VIEW · ESPN PRIMARY · PFF SECONDARY TV VERIFICATION</span><span>Client tab opens first · day/date/time live on every game card</span></div>
+    </section>
+
+    <section class="intelligence-grid">
+      <article class="intel-panel"><header><div><span class="intel-icon">⚑</span><h3>TOP CLIENT GAMES</h3></div><span class="intel-kicker">WEEK PRIORITY</span></header><div id="topGamesWidget" class="intel-body"></div></article>
+      <article class="intel-panel"><header><div><span class="intel-icon">⌁</span><h3>WATCH-WINDOW CONFLICTS</h3></div><span class="intel-kicker">WEEK OPERATIONS</span></header><div id="conflictsWidget" class="intel-body"></div></article>
+      <article class="intel-panel pff-leaders-panel"><header><div><span class="intel-icon">◎</span><div><h3>TOP PFF CLIENTS</h3><small class="intel-subhead">Latest completed client grades · top 10 by unit</small></div></div><div class="pff-mode-switch" aria-label="PFF leaderboard view"><button class="pff-mode-pill active" data-pff-mode="offense">OFFENSE</button><button class="pff-mode-pill" data-pff-mode="defense">DEFENSE</button></div></header><div id="radarWidget" class="intel-body pff-leaderboard-body"></div></article>
+    </section>
+
+    <footer class="corporate-footer"><div><strong>EXCLUSIVE SPORTS GROUP</strong><span>CALENDAR: WATCH GUIDE</span></div><p>ESPN remains the display authority for schedule, TV, stadium, location and weather. PFF verifies TV secondarily and never silently overwrites ESPN.</p></footer>
+  </main>
+
+  <div id="gameDrawer" class="game-drawer" aria-hidden="true">
+    <div id="drawerBackdrop" class="drawer-backdrop"></div>
+    <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="Client game dashboard">
+      <div class="dossier-header"><div><span>CLIENT MATCHUP DOSSIER</span><strong>WEEKLY WATCH GUIDE · ESPN PRIMARY · PFF VERIFY</strong></div><button id="closeDrawer" aria-label="Close client dashboard">×</button></div>
+      <div id="gameDrawerContent" class="drawer-content"></div>
+    </aside>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="data/client-data.js"></script><script src="app.js"></script>
+</body>
+</html>

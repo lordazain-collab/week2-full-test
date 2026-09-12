@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: esg-college-week2-command-center
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn main:app -k uvicorn.workers.UvicornWorker --workers 1 --bind 0.0.0.0:$PORT --timeout 120
+    healthCheckPath: /health
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: APP_USERNAME
+        value: esg
+      - key: APP_PASSWORD
+        sync: false
+      - key: APP_TIMEZONE
+        value: America/New_York

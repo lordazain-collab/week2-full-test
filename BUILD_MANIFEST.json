@@ -1,0 +1,49 @@
+{
+  "package": "ESG College Football Week 2 Command Center 2026",
+  "buildDate": "2026-09-12",
+  "baseline": {
+    "players": 89,
+    "week2ClientGames": 44,
+    "dates": {
+      "2026-09-11": 4,
+      "2026-09-12": 39,
+      "2026-09-13": 1
+    }
+  },
+  "automatic": {
+    "espnScoreboardSeconds": 60,
+    "espnSummary": "tracked live/final games only",
+    "pff": false
+  },
+  "files": [
+    ".env.example",
+    ".github/workflows/validate.yml",
+    ".gitignore",
+    "CURRENT_PROCESS_INTEGRATION.md",
+    "DEPLOY_GITHUB_RENDER_FREE.md",
+    "Procfile",
+    "README.md",
+    "assets/styles.css",
+    "assets/week2.js",
+    "data/week2-baseline.js",
+    "index.html",
+    "main.py",
+    "render.yaml",
+    "requirements.txt",
+    "scripts/validate_package.py",
+    "server/week2_router.py",
+    "tv-guide/*"
+  ],
+  "tvGuide": {
+    "source": "ESG Football TV Board v1.7",
+    "automaticPffNetworkDisabled": true,
+    "espnPrimary": true
+  },
+  "deployment": {
+    "githubReady": true,
+    "renderBlueprint": "render.yaml",
+    "renderPlan": "free",
+    "authentication": "HTTP Basic except /health",
+    "persistentDiskRequired": false
+  }
+}
